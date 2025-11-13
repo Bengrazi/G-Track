@@ -1,3 +1,34 @@
+// lib/storage.ts
+export type GoalItem = { id: string; text: string };
+export type Goals = { items: GoalItem[] };
+
+export type Todo = { id: string; text: string; checked: boolean };
+
+export type Routine = {
+  id: string;
+  title: string;
+  checked: boolean;
+  subOptions: string[];
+  selected: string[];
+};
+
+export type EntryV2 = {
+  date: string;
+  weeklyGoal: string;
+  intention: string;
+  aplus: string;
+  todos: Todo[];
+  routines: Routine[];
+  worked: string;
+  challenged: string;
+  tomorrowAPlus: string;
+  dailyScore: number;    // 0–100, your subjective score
+  completedPct: number;  // auto-calculated
+  aiTheme?: string;
+  aiAction?: string;
+};
+
+
 import { startOfWeekISO, monthKey, yearKey, todayISO } from "./period";
 
 const LS_ENTRIES   = "v2_entries";     // map<date, EntryV2>
